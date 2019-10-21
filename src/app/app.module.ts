@@ -1,4 +1,5 @@
-import { LoginComponent } from './admin/login/login.component';
+import { AuthGuardService as AuthGuardService } from './auth-guard.service';
+import { AuthService } from './auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -13,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { RentACarComponent } from './rent-a-car/rent-a-car.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminLoginComponent } from './admin/login/login.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -23,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     ProductsComponent,
     RentACarComponent,
-    AdminProductsComponent
+    AdminProductsComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,12 +39,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       { path: '', component: HomeComponent},
       { path: 'products', component: ProductsComponent},
       { path: 'rent-a-car', component: RentACarComponent},      
-      { path: 'admin/products', component: AdminProductsComponent},
-      { path: 'admin/login', component: Admin}
+      { path: 'admin/login', component: AdminLoginComponent},
+
+      { path: 'admin/products', component: AdminProductsComponent, canActivate:[AuthGuardService]}
     ]),
   
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
