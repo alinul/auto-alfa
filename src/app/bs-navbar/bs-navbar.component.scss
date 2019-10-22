@@ -2,11 +2,9 @@
     cursor: pointer;
 }
 
-.navbar-brand {
-    color:white;
-}
 .navbar {
     background-color: #1a66ff;
+    color: black;
 }
 
 .dropdown-item:hover {
@@ -19,11 +17,15 @@
     color: #1a66ff;
 }
 
-.nav-link {
+.nav {
+    padding-left: 10%;
+}
+
+.nav-link{
     color: black;
+    outline-color: #ffff66;
 }
 .nav-link:hover {
     color:#ffff66; 
-    cursor: pointer;
-    
+    cursor: pointer;    
 }
