@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'auto-alfa';
+  
+  refresh(): void {
+    window.location.reload();
+}
 }

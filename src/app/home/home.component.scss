@@ -12,3 +12,9 @@
     margin-top: 5%;
     padding: 5%;
 }
+
+@media (max-width:629px) {
+    img#optionalstuff {
+      width: 100%;
+    }
+  }
