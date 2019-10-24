@@ -1,3 +1,4 @@
+import { SignupFormComponent } from './signup-form/signup-form.component';
 import { AuthGuardService as AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,16 +18,19 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminLoginComponent } from './admin/login/login.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AnuntComponent } from './anunt/anunt.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SignupFormComponent,
     BsNavbarComponent,
     HomeComponent,
     ProductsComponent,
     RentACarComponent,
     AdminProductsComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    AnuntComponent
   ],
   imports: [
     BrowserModule,

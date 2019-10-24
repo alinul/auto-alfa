@@ -1,0 +1,52 @@
+<p class="lead">Pentru orice informatie ne poti contacta la numerele de telefon:
+    <b>0744.155.122</b> sau <b>0745.634.948</b> <br>
+Daca doriti sa va contactam noi, completati formularul de mai jos:
+</p>
+
+<form>
+        <div class="form-group">
+                <label for="name">Nume si Prenume</label>
+                <input
+                    id="name" 
+                    type="text" 
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="telefon">Nr. Telefon</label>
+                <input 
+                    id="telefon" 
+                    type="text" 
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Adresa Email</label>
+                <input 
+                    id="email" 
+                    type="text" 
+                    class="form-control">
+            </div>
+    
+            <div class="form-group" >
+                <label
+                style="padding: 5px;"
+                [ngClass]="statusSell ? 'btn-primary' : 'btn-secondary'">
+                    <input type="checkbox"
+                    class="" 
+                    (click)="clickEventSell()"> Vanzare/Cumparare
+                </label>
+                
+                <label
+                    style="padding: 5px;"
+                    [ngClass]="statusRent ? 'btn-primary' : 'btn-secondary'" 
+                    style="margin-left: 20px;padding: 5px;">
+                    <input type="checkbox"
+                    (click)="clickEventRent()"> Inchiriere
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Cu ce informatii va putem ajuta?</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+              
+        <button class="btn btn-primary" type="submit">Trimite</button>
+    </form>
