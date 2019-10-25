@@ -4,7 +4,6 @@
 
 .navbar {
     background-color: #1a66ff;
-    color: black;
 }
 
 .dropdown-item:hover {
@@ -18,13 +17,16 @@
 }
 
 .nav {
+    margin: 10px;
 }
 
 .nav-link{
-    color: black;
+    color: white;
     outline-color: #ffff66;
+    font: bold;
+    font-size: 140%;
 }
 .nav-link:hover {
-    color:#ffff66; 
+    color: black; 
     cursor: pointer;    
 }
