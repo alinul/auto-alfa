@@ -19,6 +19,7 @@ import { AdminLoginComponent } from './admin/login/login.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AnuntComponent } from './anunt/anunt.component';
+import { ModalAnuntComponent } from './modal-anunt/modal-anunt.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AnuntComponent } from './anunt/anunt.component';
     RentACarComponent,
     AdminProductsComponent,
     AdminLoginComponent,
-    AnuntComponent
+    AnuntComponent,
+    ModalAnuntComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { AnuntComponent } from './anunt/anunt.component';
       { path: 'products', component: ProductsComponent},
       { path: 'rent-a-car', component: RentACarComponent},      
       { path: 'admin/login', component: AdminLoginComponent},
+      { path: 'modal-anunt', component: ModalAnuntComponent},
 
       { path: 'admin/products', component: AdminProductsComponent, canActivate:[AuthGuardService]}
     ]),

@@ -1,0 +1,53 @@
+<ngb-carousel>
+    <ng-template ngbSlide *ngFor="let x of images;let i = index ">
+        <div class="picsum-img-wrapper">
+            <img [src]="images[i]" class="w-100">
+        </div>                          
+    </ng-template>                        
+</ngb-carousel>
+<div class="table-responsive">
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">Marca</th>
+            <td>Wolkswagen Q5</td>
+        </tr>
+        <tr>
+            <th scope="row">Pret</th>
+            <td>10.000 Euro</td>
+        </tr>
+        <tr>
+            <th scope="row">Detalii</th>
+            <td>08.2006
+                163cp
+                Jante aluminiu
+                Senzori fata/spate+display
+                Ceata
+                Carlig
+                Spalatori faruri
+                Volan piele
+                Comenzi volan
+                Bord color
+                Incalzire in scaune
+                Bordcomputer
+                Pilot automat
+                CLIMATRONIC
+                6+1 viteze
+                Start/stop
+                Abs/Esp/Airbags
+                Geamuri/oglinzi electrice
+                Scaune fata partial electrice
+                Audiosystem BMW Business CD (Radio/CD-Player)
+                Geamuri ionizate
+                Isofix
+                Inchidere centralizata la telecomanda
+                Carte service
+                Germania
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="close()" style="font: black;">Inchide anuntul</button>
+</div>

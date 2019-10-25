@@ -1,20 +1,10 @@
 .wallpaper {
     margin-top: 20px;
     border:1px solid;
-}
-
-.container-1 {
-    display: grid;
     width: 100%;
 }
 
 .entryText {
-    margin-top: 5%;
+    font-weight: 400 ;
     padding: 5%;
 }
-
-@media (max-width:629px) {
-    img#optionalstuff {
-      width: 100%;
-    }
-  }
