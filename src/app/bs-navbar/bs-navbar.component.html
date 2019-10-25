@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-  <h1><span class="badge">Alfa Auto</span></h1>
+  <h1><span class="badge" routerLink="/">Alfa Auto</span></h1>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar = !toggleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@
         
     </ul>
 
-    <ul class="nav navbar-dark ml-auto test">         
+    <ul class="nav navbar-dark">         
         <ng-template #anonymousUser>
         <li class="nav-link" (click)="open()" >Login</li>    
         </ng-template>            
