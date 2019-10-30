@@ -2,21 +2,32 @@
     <b>0744.155.122</b> sau <b>0745.634.948</b> <br>
 Daca doriti sa va contactam noi, completati formularul de mai jos:
 </p>
+<p style="font-weight: 8px;">(campurile marcate cu * sunt obligatorii)</p>
 
-<form>
+<form #form="ngForm" (ngSubmit)="submit(form)">
         <div class="form-group">
-                <label for="name">Nume si Prenume</label>
+                <label for="nameInput">Nume si Prenume*</label>
                 <input
-                    id="name" 
+                    required
+                    ngModel
+                    name="nameInput"
+                    #nameInput="ngModel"
+                    id="nameInput" 
                     type="text" 
                     class="form-control">
+                <div class="danger alert-danger" *ngIf="nameInput.touched && !nameInput.valid">Introduceti numele si prenumele.</div>
             </div>
             <div class="form-group">
-                <label for="telefon">Nr. Telefon</label>
+                <label for="telefon">Nr. Telefon*</label>
                 <input 
+                    required
+                    ngModel
+                    name="telefon"
+                    #telefon="ngModel"
                     id="telefon" 
-                    type="text" 
+                    type="number"
                     class="form-control">
+                <div class="danger alert-danger" *ngIf="telefon.touched && !telefon.valid">Introduceti un numar de telefon valid.</div>
             </div>
             <div class="form-group">
                 <label for="email">Adresa Email</label>
@@ -24,29 +35,39 @@ Daca doriti sa va contactam noi, completati formularul de mai jos:
                     id="email" 
                     type="text" 
                     class="form-control">
-            </div>
-    
+            </div>    
             <div class="form-group" >
-                <label
+                <label *ngIf=(!statusRent)
                 style="padding: 5px;"
                 [ngClass]="statusSell ? 'btn-primary' : 'btn-secondary'">
                     <input type="checkbox"
                     class="" 
                     (click)="clickEventSell()"> Vanzare/Cumparare
                 </label>
-                
+                <div style="width: 20px;"></div>
                 <label
+                    *ngIf=(!statusSell)
                     style="padding: 5px;"
                     [ngClass]="statusRent ? 'btn-primary' : 'btn-secondary'" 
-                    style="margin-left: 20px;padding: 5px;">
+                    style="padding: 5px;">
                     <input type="checkbox"
                     (click)="clickEventRent()"> Inchiriere
                 </label>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Cu ce informatii va putem ajuta?</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label for="informatii">Cu ce informatii va putem ajuta?*</label>
+                <textarea 
+                required
+                ngModel
+                #informatii="ngModel"
+                name="informatii"
+                class="form-control" 
+                id="informatii" 
+                rows="3"
+                (click)="log(informatii)"></textarea>
+                <div class="danger alert-danger" *ngIf="informatii.touched && informatii.value.length<20">Introduceti inca cel putin {{20 - informatii.value.length}} caractere.</div>
+                <div class="danger alert-danger" *ngIf="informatii.touched && informatii.value.length>200">Introduceti cel mult 250 caractere.</div>
             </div>
               
-        <button class="btn btn-primary" type="submit">Trimite</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Trimite</button>
     </form>

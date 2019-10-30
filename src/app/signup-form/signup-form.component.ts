@@ -18,5 +18,9 @@ export class SignupFormComponent {
   clickEventRent(){
     this.statusRent = !this.statusRent;   
 }
+
+log(e){
+  console.log(e);
+}
  
 }

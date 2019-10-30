@@ -3,6 +3,7 @@ import { AuthGuardService as AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AnuntComponent } from './anunt/anunt.component';
 import { ModalAnuntComponent } from './modal-anunt/modal-anunt.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -32,10 +34,12 @@ import { ModalAnuntComponent } from './modal-anunt/modal-anunt.component';
     AdminProductsComponent,
     AdminLoginComponent,
     AnuntComponent,
-    ModalAnuntComponent
+    ModalAnuntComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     NgbModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -47,6 +51,7 @@ import { ModalAnuntComponent } from './modal-anunt/modal-anunt.component';
       { path: 'rent-a-car', component: RentACarComponent},      
       { path: 'admin/login', component: AdminLoginComponent},
       { path: 'modal-anunt', component: ModalAnuntComponent},
+      { path: 'contact', component: ContactComponent},
 
       { path: 'admin/products', component: AdminProductsComponent, canActivate:[AuthGuardService]}
     ]),
