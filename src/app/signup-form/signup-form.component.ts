@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms'
-
+import { AngularFireDatabase } from 'angularfire2/database';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { ModalTrimisCuSuccessComponent } from 'app/modal-trimis-cu-success/modal-trimis-cu-success.component';
 
 @Component({
   selector: 'signup-form',
@@ -8,7 +9,13 @@ import { FormGroup, FormControl } from '@angular/forms'
   styleUrls: ['./signup-form.component.scss']
 })
 export class SignupFormComponent {
+
+  cerere$;
   
+  constructor(db: AngularFireDatabase, private modalService: NgbModal) {
+    this.cerere$ = db.list('/cereri');
+  }
+
   statusSell: boolean = false;
   statusRent: boolean = false;
   
@@ -19,8 +26,17 @@ export class SignupFormComponent {
     this.statusRent = !this.statusRent;   
 }
 
-log(e){
-  console.log(e);
+submit(e){
+  this.cerere$.push(e.value);
+  console.log(e.value);
+}
+
+showSuccess(){  
+    let ngbModalOptions: NgbModalOptions = {
+      backdrop : 'static',
+      keyboard : false
+    };
+    this.modalService.open(ModalTrimisCuSuccessComponent, ngbModalOptions);
 }
  
 }

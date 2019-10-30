@@ -22,6 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AnuntComponent } from './anunt/anunt.component';
 import { ModalAnuntComponent } from './modal-anunt/modal-anunt.component';
 import { ContactComponent } from './contact/contact.component';
+import { ModalTrimisCuSuccessComponent } from './modal-trimis-cu-success/modal-trimis-cu-success.component';
+import { CereriComponent } from './admin/cereri/cereri.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ContactComponent } from './contact/contact.component';
     AdminLoginComponent,
     AnuntComponent,
     ModalAnuntComponent,
-    ContactComponent
+    ContactComponent,
+    ModalTrimisCuSuccessComponent,
+    CereriComponent
   ],
   imports: [
     BrowserModule,
@@ -51,8 +55,10 @@ import { ContactComponent } from './contact/contact.component';
       { path: 'rent-a-car', component: RentACarComponent},      
       { path: 'admin/login', component: AdminLoginComponent},
       { path: 'modal-anunt', component: ModalAnuntComponent},
+      { path: 'modal-trimis-succes', component: ModalTrimisCuSuccessComponent},
       { path: 'contact', component: ContactComponent},
 
+      { path: 'admin/cereri', component: CereriComponent, canActivate:[AuthGuardService]},
       { path: 'admin/products', component: AdminProductsComponent, canActivate:[AuthGuardService]}
     ]),
   

@@ -6,16 +6,16 @@ Daca doriti sa va contactam noi, completati formularul de mai jos:
 
 <form #form="ngForm" (ngSubmit)="submit(form)">
         <div class="form-group">
-                <label for="nameInput">Nume si Prenume*</label>
+                <label for="numePrenume">Nume si Prenume*</label>
                 <input
                     required
                     ngModel
-                    name="nameInput"
-                    #nameInput="ngModel"
-                    id="nameInput" 
+                    name="numePrenume"
+                    #numePrenume="ngModel"
+                    id="numePrenume" 
                     type="text" 
                     class="form-control">
-                <div class="danger alert-danger" *ngIf="nameInput.touched && !nameInput.valid">Introduceti numele si prenumele.</div>
+                <div class="danger alert-danger" *ngIf="numePrenume.touched && !numePrenume.valid">Introduceti numele si prenumele.</div>
             </div>
             <div class="form-group">
                 <label for="telefon">Nr. Telefon*</label>
@@ -32,15 +32,20 @@ Daca doriti sa va contactam noi, completati formularul de mai jos:
             <div class="form-group">
                 <label for="email">Adresa Email</label>
                 <input 
+                    ngModel
+                    name="adresaEmail"
                     id="email" 
                     type="text" 
                     class="form-control">
             </div>    
             <div class="form-group" >
                 <label *ngIf=(!statusRent)
-                style="padding: 5px;"
-                [ngClass]="statusSell ? 'btn-primary' : 'btn-secondary'">
-                    <input type="checkbox"
+                    style="padding: 5px;"
+                    [ngClass]="statusSell ? 'btn-primary' : 'btn-secondary'">
+                <input 
+                    ngModel
+                    name="vanzareCumparare"
+                    type="checkbox"
                     class="" 
                     (click)="clickEventSell()"> Vanzare/Cumparare
                 </label>
@@ -50,7 +55,10 @@ Daca doriti sa va contactam noi, completati formularul de mai jos:
                     style="padding: 5px;"
                     [ngClass]="statusRent ? 'btn-primary' : 'btn-secondary'" 
                     style="padding: 5px;">
-                    <input type="checkbox"
+                <input 
+                    ngModel
+                    name="rent-a-car"
+                    type="checkbox"
                     (click)="clickEventRent()"> Inchiriere
                 </label>
             </div>
@@ -63,11 +71,10 @@ Daca doriti sa va contactam noi, completati formularul de mai jos:
                 name="informatii"
                 class="form-control" 
                 id="informatii" 
-                rows="3"
-                (click)="log(informatii)"></textarea>
+                rows="3"></textarea>
                 <div class="danger alert-danger" *ngIf="informatii.touched && informatii.value.length<20">Introduceti inca cel putin {{20 - informatii.value.length}} caractere.</div>
                 <div class="danger alert-danger" *ngIf="informatii.touched && informatii.value.length>200">Introduceti cel mult 250 caractere.</div>
             </div>
               
-        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Trimite</button>
+        <button class="btn btn-primary" type="submit" (click)="showSuccess()" [disabled]="!form.valid">Trimite</button>
     </form>
