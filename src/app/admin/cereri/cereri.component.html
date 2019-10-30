@@ -1,1 +1,28 @@
-<p>cereri works!</p>
+<div class="mainContainer">
+    <div class="leftContainer col-sm-12 col-md-6 col-centered">
+        <ngb-accordion *ngFor="let cerere of cereri$ " #acc="ngbAccordion">
+            <ngb-panel id="toggle-1" title="Cerere Inchiriere">
+              <ng-template ngbPanelContent>
+                {{cereri$.numePrenume}}
+                {{cereri$.telefon}}
+              </ng-template>
+            </ngb-panel>    
+          </ngb-accordion>    
+    </div>
+    
+    <div class="rightContainer col-sm-12 col-md-6 col-centered">
+        <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel id="toggle-2" title="Cerere Vanzare/Cumparare">
+              <ng-template ngbPanelContent>
+                {{numePrenume}}
+                {{telefon}}
+              </ng-template>
+            </ngb-panel>    
+          </ngb-accordion>    
+    </div>
+</div>
+
+<button (click)="cl()"></button>
+    
+      
+

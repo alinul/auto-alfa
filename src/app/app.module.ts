@@ -24,6 +24,7 @@ import { ModalAnuntComponent } from './modal-anunt/modal-anunt.component';
 import { ContactComponent } from './contact/contact.component';
 import { ModalTrimisCuSuccessComponent } from './modal-trimis-cu-success/modal-trimis-cu-success.component';
 import { CereriComponent } from './admin/cereri/cereri.component';
+import { AdminAuthGuardService } from './admin-auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { CereriComponent } from './admin/cereri/cereri.component';
   ],
   providers: [
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    AdminAuthGuardService
   ],
   bootstrap: [AppComponent]
 })

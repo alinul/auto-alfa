@@ -28,7 +28,6 @@ export class SignupFormComponent {
 
 submit(e){
   this.cerere$.push(e.value);
-  console.log(e.value);
 }
 
 showSuccess(){  
