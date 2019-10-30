@@ -25,6 +25,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ModalTrimisCuSuccessComponent } from './modal-trimis-cu-success/modal-trimis-cu-success.component';
 import { CereriComponent } from './admin/cereri/cereri.component';
 import { AdminAuthGuardService } from './admin-auth-guard.service';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { AdminAuthGuardService } from './admin-auth-guard.service';
   providers: [
     AuthService,
     AuthGuardService,
-    AdminAuthGuardService
+    AdminAuthGuardService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
