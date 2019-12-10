@@ -8,7 +8,7 @@ export class AdminAuthGuardService implements CanActivate{
 
   constructor(private auth: AuthService) { }
 
-  canActivate(){
+  canActivate():any{
     this.auth.user$
       .map(user => {
         
