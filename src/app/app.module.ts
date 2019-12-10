@@ -1,3 +1,4 @@
+import { ProductService } from './product.service';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { AuthGuardService as AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
@@ -23,9 +24,9 @@ import { AnuntComponent } from './anunt/anunt.component';
 import { ModalAnuntComponent } from './modal-anunt/modal-anunt.component';
 import { ContactComponent } from './contact/contact.component';
 import { ModalTrimisCuSuccessComponent } from './modal-trimis-cu-success/modal-trimis-cu-success.component';
-import { CereriComponent } from './admin/cereri/cereri.component';
 import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { UserService } from './user.service';
+import { AddProductComponent } from './admin/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { UserService } from './user.service';
     ModalAnuntComponent,
     ContactComponent,
     ModalTrimisCuSuccessComponent,
-    CereriComponent
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
@@ -60,8 +61,8 @@ import { UserService } from './user.service';
       { path: 'modal-trimis-succes', component: ModalTrimisCuSuccessComponent},
       { path: 'contact', component: ContactComponent},
 
-      { path: 'admin/cereri', component: CereriComponent, canActivate:[AuthGuardService]},
-      { path: 'admin/products', component: AdminProductsComponent, canActivate:[AuthGuardService]}
+      { path: 'admin/products', component: AdminProductsComponent, canActivate:[AuthGuardService, AdminAuthGuardService]},
+      { path: 'admin/products/new', component: AddProductComponent, canActivate:[AuthGuardService, AdminAuthGuardService]}
     ]),
   
   ],
@@ -69,7 +70,8 @@ import { UserService } from './user.service';
     AuthService,
     AuthGuardService,
     AdminAuthGuardService,
-    UserService
+    UserService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })

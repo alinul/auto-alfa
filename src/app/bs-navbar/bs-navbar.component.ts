@@ -5,6 +5,7 @@ import { AdminLoginComponent } from 'app/admin/login/login.component';
 import * as firebase from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
+import { AppUser } from 'app/models/app-user';
 
 @Component({
   selector: 'bs-navbar',
@@ -13,10 +14,10 @@ import { Observable } from 'rxjs';
 })
 export class BsNavbarComponent {
 
-  user$: Observable<firebase.User>;
+  appUser: AppUser;
 
-  constructor(private afAuth:AngularFireAuth, public auth: AuthService, private modalService: NgbModal) { 
-    this.user$ = afAuth.authState;
+  constructor(private auth: AuthService, private modalService: NgbModal) {     
+    auth.appUser$.subscribe(appUser => this.appUser =appUser);
    }
 
   logout() {
